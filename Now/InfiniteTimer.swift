@@ -33,6 +33,7 @@ struct InfiniteTimer: View {
                 Spacer() // Space between the controls and the circle
 
                 if timeIsRunning {
+                    InfiniteSun(duration: sun.timeInMs)
                     Text(formattedTime(sun.timeInMs))
                         .font(.headline)
                 } else {
@@ -69,18 +70,6 @@ struct InfiniteTimer: View {
 
 }
 
-struct PieSliceMask: Shape {
-    var startAngle: Angle
-    var endAngle: Angle
-
-    func path(in rect: CGRect) -> Path {
-        var path = Path()
-        path.move(to: CGPoint(x: rect.midX, y: rect.midY))
-        path.addArc(center: CGPoint(x: rect.midX, y: rect.midY), radius: rect.midX, startAngle: startAngle, endAngle: endAngle, clockwise: true) // Ensure the clockwise direction is correct for reducing arc
-        path.closeSubpath()
-        return path
-    }
-}
 
 struct InfiniteTimer_Previews: PreviewProvider {
     static var previews: some View {
