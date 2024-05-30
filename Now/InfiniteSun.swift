@@ -1,15 +1,5 @@
 import SwiftUI
 
-extension Color {
-    static var random: Color {
-        return Color(
-            red: .random(in: 0...1),
-            green: .random(in: 0...1),
-            blue: .random(in: 0...1)
-        )
-    }
-}
-
 func mapRange(value: Double, start: Double = 0, end: Double =  0) -> Double {
     
     let targetRangeMin: Double = start
@@ -22,24 +12,24 @@ func mapRange(value: Double, start: Double = 0, end: Double =  0) -> Double {
 }
 
 struct InfiniteSun: View {
-    var hue: Double = Double.random(in: 35...52)
-    @State var duration: Int = 0 {
+    var hue: Double = 20
+    @Binding var duration: Int? {
         didSet {
             withAnimation {
-                            end1 = mapRange(value: Double(duration), start: 0, end: 300_000)
-                            end2 = mapRange(value: Double(duration), start: 300_001, end: 1_800_000)
-                            end3 = mapRange(value: Double(duration), start: 1_800_001, end: 5_400_000)
-                            end4 = mapRange(value: Double(duration), start: 5_400_001, end: 10_800_000)
+                            end1 = mapRange(value: Double(duration ?? 0), start: 0, end: 300_000)
+                            end2 = mapRange(value: Double(duration ?? 0), start: 300_001, end: 1_800_000)
+                            end3 = mapRange(value: Double(duration ?? 0), start: 1_800_001, end: 5_400_000)
+                            end4 = mapRange(value: Double(duration ?? 0), start: 5_400_001, end: 10_800_000)
                         }
         }
     }
-    init(duration: Int) {
-        self.duration = duration
-        end1 = mapRange(value: Double(duration), start: 0, end: 300_000)
-        end2 = mapRange(value: Double(duration), start: 300_001, end: 1_800_000)
-        end3 = mapRange(value: Double(duration), start: 1_800_001, end: 5_400_000)
-        end4 = mapRange(value: Double(duration), start: 5_400_001, end: 10_800_000)
-    }
+    init(duration: Binding<Int?>) {
+            self._duration = duration
+            self._end1 = State(initialValue: mapRange(value: Double(duration.wrappedValue ?? 0), start: 0, end: 300_000))
+            self._end2 = State(initialValue: mapRange(value: Double(duration.wrappedValue ?? 0), start: 300_001, end: 1_800_000))
+            self._end3 = State(initialValue: mapRange(value: Double(duration.wrappedValue ?? 0), start: 1_800_001, end: 5_400_000))
+            self._end4 = State(initialValue: mapRange(value: Double(duration.wrappedValue ?? 0), start: 5_400_001, end: 10_800_000))
+        }
     
     @State var sections: Double = 1
     
@@ -99,18 +89,11 @@ struct InfiniteSun: View {
     }
     private var durationDouble: Binding<Double> {
             Binding(
-                get: { Double(duration) },
+                get: { Double(duration ?? 0) },
                 set: { duration = Int($0) }
             )
         }
 
-}
-
-
-
-let threeMn: Int = 3 * 1000 * 60
-#Preview {
-    InfiniteSun(duration: threeMn)
 }
 
 
