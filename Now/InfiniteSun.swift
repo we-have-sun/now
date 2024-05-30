@@ -66,28 +66,36 @@ struct InfiniteSun: View {
             Circle()
                 .trim(from: 0, to: end1)
                 .rotation(.degrees(-90))
-                .stroke(hslColor1 ,style: StrokeStyle(lineWidth: 55, lineCap: .round))
+                .stroke(hslColor1 ,style: StrokeStyle(lineWidth: calculatedWidth(end1), lineCap: .round))
                 .frame(width: 60, height: 60)
             Circle()
                 .trim(from: 0, to: end2)
                 .rotation(.degrees(-90))
-                .stroke(hslColor2 ,style: StrokeStyle(lineWidth: 55, lineCap: .round))
+                .stroke(hslColor2 ,style: StrokeStyle(lineWidth: calculatedWidth(end2), lineCap: .round))
                 .frame(width: 160, height: 160)
             Circle()
                 .trim(from: 0, to: end3)
                 .rotation(.degrees(-90))
-                .stroke(hslColor3 ,style: StrokeStyle(lineWidth: 55, lineCap: .round))
+                .stroke(hslColor3 ,style: StrokeStyle(lineWidth: calculatedWidth(end3), lineCap: .round))
                 .frame(width: 260, height: 260)
             Circle()
                 .trim(from: 0, to: end4)
                 .rotation(.degrees(-90))
-                .stroke(hslColor4 ,style: StrokeStyle(lineWidth: 45, lineCap: .round))
+                .stroke(hslColor4 ,style: StrokeStyle(lineWidth: calculatedWidth(end4), lineCap: .round))
                 .frame(width: 340, height: 340)
         }.padding(12)
         Slider(value: durationDouble, in: 0...10_800_000, step: 1)
                        .padding()
         
         
+    }
+    func calculatedWidth(_ value: Double) -> Double{
+        if (value < 0.005) {
+          return value*60
+        }
+        else{
+            return 55
+        }
     }
     private var durationDouble: Binding<Double> {
             Binding(
