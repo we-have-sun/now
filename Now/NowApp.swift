@@ -11,7 +11,7 @@ import SwiftUI
 struct NowApp: App {
     var body: some Scene {
         WindowGroup {
-            AnimatedGradientCircleWithCountdown()
+            SunsView()
         }
     }
 }
