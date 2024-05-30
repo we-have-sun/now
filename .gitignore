@@ -1,2 +1,3 @@
 # Ignore Xcode user-specific settings
 *.xcuserstate
+.DS_Store
