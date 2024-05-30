@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct InfinteSunTester: View {
-    @State private var duration: Int? = 3 * 1000 * 60
+    @State var duration: Int? = 289_999
+    @State private var timer: Timer?
     var body: some View {
+        Button("Random Time") {
+            duration = Int.random(in: 0...10_800_000)
+        }
+        .padding(40)
+        Button("Start Timer") {
+            startTimer()
+        }
         
-        InfiniteSun(duration: $duration)
+        InfiniteSun(hue: 50, duration: $duration)
         Slider(value: durationDouble, in: 0...10_800_000, step: 1)
                        .padding()
         
@@ -21,6 +29,14 @@ struct InfinteSunTester: View {
                 get: { Double(duration ?? 0) },
                 set: { duration = Int($0) }
             )
+        }
+    private func startTimer() {
+            timer?.invalidate() // Invalidate the existing timer if any
+            timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
+                if let currentDuration = duration {
+                    duration = currentDuration + 100_000
+                }
+            }
         }
 
 }

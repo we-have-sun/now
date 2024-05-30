@@ -33,7 +33,7 @@ struct InfiniteTimer: View {
                 Spacer() // Space between the controls and the circle
 
                 if timeIsRunning {
-                    InfiniteSun(duration: sun.timeInMs)
+                   // InfiniteSun(duration: sun.timeInMs)
                     Text(formattedTime(sun.timeInMs))
                         .font(.headline)
                 } else {
