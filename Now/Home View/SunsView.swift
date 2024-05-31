@@ -14,7 +14,9 @@ struct SunsView: View {
 //    let cloudKitManager = CloudKitManager()
 
     @State private var intention = "Training"
-    @State private var allIntentios = ["Training", "Meditation", "Reading", "Exercise", "Work"]
+    @State private var allIntentios = ["We Have Sun", "Training", "Meditation", "Reading", "Uncut", "Beats"]
+
+    @State private var selectedString: Int? = 0
 
 
     init() {
@@ -37,12 +39,11 @@ struct SunsView: View {
                 
                 VStack() {
                     Spacer(minLength: 100)
-                    SnappingHorizontalScrollView(userStrings: allIntentios)
+                    SnappingHorizontalScrollView(userStrings: allIntentios, selectedString: $selectedString)
                     Spacer()
-                    
                 }
-                
             }
         }
     }
 }
+

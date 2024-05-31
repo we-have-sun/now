@@ -9,8 +9,10 @@ import Foundation
 
 class Sun: ObservableObject {
     var name: String
-    @Published var timeInMs: Int = 0
+    @Published var timeInMs: Int? = 0
     
+    var hue = Double.random(in: 40...55)
+
     private var timer: DispatchSourceTimer?
     private let queue = DispatchQueue.main
     private let interval: TimeInterval = 0.001
@@ -23,12 +25,9 @@ class Sun: ObservableObject {
     func start() {
         startDate = Date()
         
-        print("start")
         let timer = DispatchSource.makeTimerSource(queue: queue)
         timer.schedule(deadline: .now(), repeating: interval)
         timer.setEventHandler(handler: DispatchWorkItem(block: {
-            print("working")
-
             if let startDate = self.startDate {
                 self.timeInMs = -Int(startDate.timeIntervalSinceNow * 1000)
             }

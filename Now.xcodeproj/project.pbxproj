@@ -11,6 +11,7 @@
 		4557F7A12C08788700133F5B /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F7A02C08788700133F5B /* CloudKitManager.swift */; };
 		4557F7A32C087A5000133F5B /* SnappingHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F7A22C087A5000133F5B /* SnappingHorizontalScrollView.swift */; };
 		4557F7A62C088CCE00133F5B /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F7A52C088CCE00133F5B /* Sun.swift */; };
+		4557F7A82C09C2BD00133F5B /* ScrollViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F7A72C09C2BD00133F5B /* ScrollViewTests.swift */; };
 		45C277C62BCA894F00A42608 /* NowApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C277C52BCA894F00A42608 /* NowApp.swift */; };
 		45C277C82BCA894F00A42608 /* InfiniteTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C277C72BCA894F00A42608 /* InfiniteTimer.swift */; };
 		45C277CA2BCA895000A42608 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 45C277C92BCA895000A42608 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 		4557F7A22C087A5000133F5B /* SnappingHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingHorizontalScrollView.swift; sourceTree = "<group>"; };
 		4557F7A42C087B4C00133F5B /* Now.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Now.entitlements; sourceTree = "<group>"; };
 		4557F7A52C088CCE00133F5B /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
+		4557F7A72C09C2BD00133F5B /* ScrollViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewTests.swift; sourceTree = "<group>"; };
 		45C277C22BCA894F00A42608 /* Now.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Now.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C277C52BCA894F00A42608 /* NowApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowApp.swift; sourceTree = "<group>"; };
 		45C277C72BCA894F00A42608 /* InfiniteTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfiniteTimer.swift; sourceTree = "<group>"; };
@@ -45,6 +47,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4557F7A92C09C42600133F5B /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				4557F79E2C0877AD00133F5B /* SunsView.swift */,
+				4557F7A22C087A5000133F5B /* SnappingHorizontalScrollView.swift */,
+				4557F7A72C09C2BD00133F5B /* ScrollViewTests.swift */,
+			);
+			path = "Home View";
+			sourceTree = "<group>";
+		};
+		4557F7AA2C09C44200133F5B /* Time View */ = {
+			isa = PBXGroup;
+			children = (
+				679FF8632C08B8DF00F1B230 /* InfiniteSun.swift */,
+				45C277C72BCA894F00A42608 /* InfiniteTimer.swift */,
+				679B37A82C08C7D000736EB5 /* InfinteSunTester.swift */,
+			);
+			path = "Time View";
+			sourceTree = "<group>";
+		};
+		4557F7AB2C09C45600133F5B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				4557F7A52C088CCE00133F5B /* Sun.swift */,
+				4557F7A02C08788700133F5B /* CloudKitManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		45C277B92BCA894F00A42608 = {
 			isa = PBXGroup;
 			children = (
@@ -66,15 +97,11 @@
 			children = (
 				4557F7A42C087B4C00133F5B /* Now.entitlements */,
 				45C277C52BCA894F00A42608 /* NowApp.swift */,
-				4557F79E2C0877AD00133F5B /* SunsView.swift */,
-				4557F7A22C087A5000133F5B /* SnappingHorizontalScrollView.swift */,
-				4557F7A52C088CCE00133F5B /* Sun.swift */,
-				4557F7A02C08788700133F5B /* CloudKitManager.swift */,
-				679FF8632C08B8DF00F1B230 /* InfiniteSun.swift */,
-				45C277C72BCA894F00A42608 /* InfiniteTimer.swift */,
+				4557F7A92C09C42600133F5B /* Home View */,
+				4557F7AA2C09C44200133F5B /* Time View */,
+				4557F7AB2C09C45600133F5B /* Data */,
 				45C277C92BCA895000A42608 /* Assets.xcassets */,
 				45C277CB2BCA895000A42608 /* Preview Content */,
-				679B37A82C08C7D000736EB5 /* InfinteSunTester.swift */,
 			);
 			path = Now;
 			sourceTree = "<group>";
@@ -160,6 +187,7 @@
 				4557F79F2C0877AD00133F5B /* SunsView.swift in Sources */,
 				45C277C82BCA894F00A42608 /* InfiniteTimer.swift in Sources */,
 				4557F7A62C088CCE00133F5B /* Sun.swift in Sources */,
+				4557F7A82C09C2BD00133F5B /* ScrollViewTests.swift in Sources */,
 				4557F7A12C08788700133F5B /* CloudKitManager.swift in Sources */,
 				4557F7A32C087A5000133F5B /* SnappingHorizontalScrollView.swift in Sources */,
 				679FF8642C08B8DF00F1B230 /* InfiniteSun.swift in Sources */,
