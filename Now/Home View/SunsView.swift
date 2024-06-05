@@ -7,30 +7,23 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 
 struct SunsView: View {
-
-//    let cloudKitManager = CloudKitManager()
 
     @State private var intention = "Training"
     @State private var allIntentios = ["We Have Sun", "Training", "Meditation", "Reading", "Uncut", "Beats"]
 
     @State private var selectedString: Int? = 0
 
+    @Query var suns: [Sun]
+    @Environment(\.modelContext) var modelContext
+    
+    let columns = [
+        GridItem(.adaptive(minimum: 80))
+    ]
 
-    init() {
-        getStrings()
-    }
-    
-    func getStrings() {
-//        cloudKitManager.fetchStrings { strings in
-//            if let strings = strings {
-//                self.allIntentios = strings
-//            }
-//        }
-    }
-    
     var body: some View {
         NavigationStack {
             
@@ -40,6 +33,16 @@ struct SunsView: View {
                 VStack() {
                     Spacer(minLength: 100)
                     SnappingHorizontalScrollView(userStrings: allIntentios, selectedString: $selectedString)
+                    Spacer()
+                    ScrollView {
+                        LazyVGrid(columns: columns, spacing: 20) {
+//                            ForEach(suns, id: \.self) { sun in
+//                                InfiniteSun(hue: sun.permanentSun.hue, duration: sun.$timeInMs)
+//                            }
+                        }
+                        .padding(.horizontal)
+                    }
+                    .frame(maxHeight: 300)
                     Spacer()
                 }
             }

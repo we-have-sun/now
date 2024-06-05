@@ -10,13 +10,13 @@ import CoreGraphics
 
 struct InfiniteTimer: View {
 
-    @StateObject private var sun: Sun
+    @StateObject private var sun: RunningSun
     @State private var timeIsRunning = false
     @State private var intention = "Training" // State for storing user intention
 
     init(intention: String) {
         self.intention = intention
-        _sun = StateObject(wrappedValue: Sun(name: intention))
+        _sun = StateObject(wrappedValue: RunningSun(sun: Sun(name: intention)))
     }
 
     var body: some View {
@@ -32,12 +32,12 @@ struct InfiniteTimer: View {
                 Spacer()
 
                 if timeIsRunning {
-                    InfiniteSun(hue: sun.hue, duration: $sun.timeInMs)
-                        .padding(40)
+                    InfiniteSun(hue: sun.permanentSun.hue, duration: $sun.timeInMs)
                     HStack {
                         Spacer()
                         Text(formattedTime(sun.timeInMs ?? 0))
                             .font(.system(size: 26, weight: .medium, design: .monospaced))
+                            .foregroundColor(.black)
                         Spacer()
                     }
 
