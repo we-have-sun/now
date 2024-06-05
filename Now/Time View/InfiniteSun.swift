@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreMotion
 
 func mapRange(value: Double, start: Double = 0, end: Double = 0) -> Double {
     let targetRangeMin: Double = start
@@ -8,8 +9,45 @@ func mapRange(value: Double, start: Double = 0, end: Double = 0) -> Double {
     return mappedValue
 }
 
+
+struct CustomCircle: View {
+    var trimEnd: CGFloat
+    var color: Color
+    var lineWidth: CGFloat
+    var size: CGFloat
+    var opacity: Double = 1.0
+    var isFive: Bool = false
+    
+    var shadowOpacity: Double = 0
+    var shadowRadius: Double = 10
+    var shadowColor: Color = Color(red: 0.656, green: 0.515, blue: 0.014)
+    var shadowOffset: CGSize = CGSize(width: 0, height: 0)
+    
+    @EnvironmentObject var motionManager: MotionManager
+
+    var body: some View {
+        Circle()
+            .trim(from: 0, to: trimEnd)
+            .rotation(.degrees(-90))
+            .stroke(color, style: StrokeStyle(lineWidth: calculatedWidth(Double(trimEnd), target: Double(lineWidth), isFive: isFive), lineCap: .round))
+            .frame(width: size, height: size)
+            .opacity(opacity)
+            .shadow(color: shadowColor.opacity(shadowOpacity), radius: shadowRadius, x: motionManager.shadowOffset.width, y: motionManager.shadowOffset.height)
+    }
+}
+
+func calculatedWidth(_ value: Double, target: Double, isFive: Bool = false) -> Double {
+    if value < 0.0005 {
+        return value * 55
+    } else {
+        return target
+    }
+}
+
+
 struct InfiniteSun: View {
     var hue: Double
+    @StateObject private var motionManager = MotionManager()
     @Binding var duration: Int? {
         didSet {
             withAnimation {
@@ -41,31 +79,26 @@ struct InfiniteSun: View {
         let hslColor2 = Color(hue: calculatedHue, saturation: 0.52, brightness: 1)
         let hslColor3 = Color(hue: calculatedHue, saturation: 0.72, brightness: 1)
         let hslColor4 = Color(hue: calculatedHue, saturation: 0.90, brightness: 1)
+        let bgColor = hslColor1
 
         ZStack {
-            Circle()
-                .trim(from: 0, to: end1)
-                .rotation(.degrees(-90))
-                .stroke(hslColor1, style: StrokeStyle(lineWidth: calculatedWidth(end1), lineCap: .round))
-                .frame(width: 50, height: 50)
-            Circle()
-                .trim(from: 0, to: end2)
-                .rotation(.degrees(-90))
-                .stroke(hslColor2, style: StrokeStyle(lineWidth: calculatedWidth(end2), lineCap: .round))
-                .frame(width: 140, height: 140)
-            Circle()
-                .trim(from: 0, to: end3)
-                .rotation(.degrees(-90))
-                .stroke(hslColor3, style: StrokeStyle(lineWidth: calculatedWidth(end3), lineCap: .round))
-                .frame(width: 230, height: 230)
-            Circle()
-                .trim(from: 0, to: end4)
-                .rotation(.degrees(-90))
-                .stroke(hslColor4, style: StrokeStyle(lineWidth: (calculatedWidth(end4)-20), lineCap: .round))
-                .frame(width: 310, height: 310)
+            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 30, size: 311, opacity: 0.47)
+            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 50, size: 231, opacity: 0.38)
+            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 50, size: 131, opacity: 0.25)
+            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 40, size: 41, opacity: 0.1)
+            
+            
+            CustomCircle(trimEnd: end4, color: hslColor4, lineWidth: 30, size: 311, shadowOpacity: 0)
+            CustomCircle(trimEnd: end3, color: hslColor3, lineWidth: 50, size: 231, shadowOpacity:0.2)
+            CustomCircle(trimEnd: end2, color: hslColor2, lineWidth: 50, size: 131,shadowOpacity:0.2)
+            CustomCircle(trimEnd: end1, color: hslColor1, lineWidth: 40, size: 41, isFive: true, shadowOpacity:0.2)
+            
+            
+            
+            
         }
-        .padding(12)
         .onChange(of: duration, updateEndValues)
+        .environmentObject(motionManager)
     }
 
     private func updateEndValues() {
@@ -74,14 +107,6 @@ struct InfiniteSun: View {
             end2 = mapRange(value: Double(duration ?? 0), start: 300_001, end: 1_800_000)
             end3 = mapRange(value: Double(duration ?? 0), start: 1_800_001, end: 5_400_000)
             end4 = mapRange(value: Double(duration ?? 0), start: 5_400_001, end: 10_800_000)
-        }
-    }
-
-    func calculatedWidth(_ value: Double) -> Double {
-        if value < 0.0005 {
-            return value * 55
-        } else {
-            return 50
         }
     }
 }

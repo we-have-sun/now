@@ -21,7 +21,7 @@ struct InfiniteTimer: View {
 
     var body: some View {
         ZStack(alignment: .top) {
-            Color(red: 251, green: 250, blue: 249)
+            Color(red: 239, green: 243, blue: 245)
                 .ignoresSafeArea()
 
             VStack {
@@ -33,6 +33,7 @@ struct InfiniteTimer: View {
 
                 if timeIsRunning {
                     InfiniteSun(hue: sun.hue, duration: $sun.timeInMs)
+                        .padding(40)
                     HStack {
                         Spacer()
                         Text(formattedTime(sun.timeInMs ?? 0))

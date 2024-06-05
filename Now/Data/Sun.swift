@@ -9,7 +9,7 @@ import Foundation
 
 class Sun: ObservableObject {
     var name: String
-    @Published var timeInMs: Int? = 0
+    @Published var timeInMs: Int? = 10_800_000
     
     var hue = Double.random(in: 40...55)
 
