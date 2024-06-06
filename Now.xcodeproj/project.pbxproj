@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		45163A002C0E37A500CB32C5 /* RunningSun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451639FF2C0E37A500CB32C5 /* RunningSun.swift */; };
+		454C9E222C10C7FC003382C2 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454C9E212C10C7FC003382C2 /* MotionManager.swift */; };
 		4557F79F2C0877AD00133F5B /* SunsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F79E2C0877AD00133F5B /* SunsView.swift */; };
-		4557F7A12C08788700133F5B /* CloudKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F7A02C08788700133F5B /* CloudKitManager.swift */; };
 		4557F7A32C087A5000133F5B /* SnappingHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F7A22C087A5000133F5B /* SnappingHorizontalScrollView.swift */; };
 		4557F7A62C088CCE00133F5B /* Sun.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F7A52C088CCE00133F5B /* Sun.swift */; };
 		4557F7A82C09C2BD00133F5B /* ScrollViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4557F7A72C09C2BD00133F5B /* ScrollViewTests.swift */; };
@@ -22,8 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		451639FF2C0E37A500CB32C5 /* RunningSun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningSun.swift; sourceTree = "<group>"; };
+		454C9E212C10C7FC003382C2 /* MotionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		4557F79E2C0877AD00133F5B /* SunsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsView.swift; sourceTree = "<group>"; };
-		4557F7A02C08788700133F5B /* CloudKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudKitManager.swift; sourceTree = "<group>"; };
 		4557F7A22C087A5000133F5B /* SnappingHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingHorizontalScrollView.swift; sourceTree = "<group>"; };
 		4557F7A42C087B4C00133F5B /* Now.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Now.entitlements; sourceTree = "<group>"; };
 		4557F7A52C088CCE00133F5B /* Sun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sun.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				67E734C32C11C79000C36532 /* MotionManager.swift */,
 				45C277C72BCA894F00A42608 /* InfiniteTimer.swift */,
 				679B37A82C08C7D000736EB5 /* InfinteSunTester.swift */,
+				454C9E212C10C7FC003382C2 /* MotionManager.swift */,
 			);
 			path = "Time View";
 			sourceTree = "<group>";
@@ -74,7 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				4557F7A52C088CCE00133F5B /* Sun.swift */,
-				4557F7A02C08788700133F5B /* CloudKitManager.swift */,
+				451639FF2C0E37A500CB32C5 /* RunningSun.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -194,7 +197,9 @@
 				4557F7A12C08788700133F5B /* CloudKitManager.swift in Sources */,
 				67E734C42C11C79000C36532 /* MotionManager.swift in Sources */,
 				4557F7A32C087A5000133F5B /* SnappingHorizontalScrollView.swift in Sources */,
+				454C9E222C10C7FC003382C2 /* MotionManager.swift in Sources */,
 				679FF8642C08B8DF00F1B230 /* InfiniteSun.swift in Sources */,
+				45163A002C0E37A500CB32C5 /* RunningSun.swift in Sources */,
 				45C277C82BCA894F00A42608 /* InfiniteTimer.swift in Sources */,
 				45C277C62BCA894F00A42608 /* NowApp.swift in Sources */,
 				679B37A92C08C7D000736EB5 /* InfinteSunTester.swift in Sources */,
@@ -346,7 +351,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wehavesun.now;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wehavesun.now111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -378,7 +383,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.wehavesun.now;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wehavesun.now111;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
