@@ -85,17 +85,17 @@ struct InfiniteSun: View {
         ZStack {
 
             //strokes
-            CustomCircle(color: bgColor, lineWidth: 2, size: 280, opacity: 0.6)
-            CustomCircle(color: bgColor, lineWidth: 2, size: 340, opacity: 0.6)
-            CustomCircle(color: bgColor, lineWidth: 2, size: 178, opacity: 0.6)
-            CustomCircle(color: bgColor, lineWidth: 2, size: 80, opacity: 0.75)
+            CustomCircle(color: bgColor, lineWidth: 1, size: 280, opacity: 0.7)
+            CustomCircle(color: bgColor, lineWidth: 1, size: 340, opacity: 0.7)
+            CustomCircle(color: bgColor, lineWidth: 1, size: 178, opacity: 0.7)
+            CustomCircle(color: bgColor, lineWidth: 1, size: 80, opacity: 0.7)
 
             
             //backgrounds
-            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 30, size: 311, opacity: 0.1)
-            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 50, size: 231, opacity: 0.25)
-            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 50, size: 131, opacity: 0.4)
-            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 40, size: 41, opacity: 0.1)
+            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 30, size: 311, opacity: 0.2)
+            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 50, size: 231, opacity: 0.4)
+            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 50, size: 131, opacity: 0.6)
+            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 40, size: 41, opacity: 0.2)
            
           
             
