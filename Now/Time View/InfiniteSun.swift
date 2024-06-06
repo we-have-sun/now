@@ -11,7 +11,7 @@ func mapRange(value: Double, start: Double = 0, end: Double = 0) -> Double {
 
 
 struct CustomCircle: View {
-    var trimEnd: CGFloat
+    var trimEnd: CGFloat = 1.0
     var color: Color
     var lineWidth: CGFloat
     var size: CGFloat
@@ -33,6 +33,7 @@ struct CustomCircle: View {
             .frame(width: size, height: size)
             .opacity(opacity)
             .shadow(color: shadowColor.opacity(shadowOpacity), radius: shadowRadius, x: motionManager.shadowOffset.width, y: motionManager.shadowOffset.height)
+            .padding(10)
     }
 }
 
@@ -82,10 +83,21 @@ struct InfiniteSun: View {
         let bgColor = hslColor1
 
         ZStack {
-            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 30, size: 311, opacity: 0.47)
-            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 50, size: 231, opacity: 0.38)
-            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 50, size: 131, opacity: 0.25)
+
+            //strokes
+            CustomCircle(color: bgColor, lineWidth: 2, size: 280, opacity: 0.6)
+            CustomCircle(color: bgColor, lineWidth: 2, size: 340, opacity: 0.6)
+            CustomCircle(color: bgColor, lineWidth: 2, size: 178, opacity: 0.6)
+            CustomCircle(color: bgColor, lineWidth: 2, size: 80, opacity: 0.75)
+
+            
+            //backgrounds
+            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 30, size: 311, opacity: 0.1)
+            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 50, size: 231, opacity: 0.25)
+            CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 50, size: 131, opacity: 0.4)
             CustomCircle(trimEnd: 1, color: bgColor, lineWidth: 40, size: 41, opacity: 0.1)
+           
+          
             
             
             CustomCircle(trimEnd: end4, color: hslColor4, lineWidth: 30, size: 311, shadowOpacity: 0)
